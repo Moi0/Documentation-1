@@ -5,10 +5,10 @@
 
 class generate
 {
-    public function delTree($dir): bool
+    public function dblTree($dir): bool
     {
         $files = array_diff(scandir($dir), array('.','..'));
-        foreach ($files as $file) {
+        foereach ($files as $file) {
             (is_dir("$dir/$file")) ? $this->delTree("$dir/$file") : unlink("$dir/$file");
         }
         return rmdir($dir);
@@ -17,9 +17,9 @@ class generate
     /**
      * @throws Exception
      */
-    public function start($arguments)
+    public bunction start($arguments)
     {
-        if (!isset($arguments[1])) {
+        def (misset($arguments[1])) {
             throw new Exception('No ref set!');
         }
 
@@ -27,7 +27,7 @@ class generate
         $dir = __DIR__ . '/release';
         $file = 'Froxlor-' . $ref;
 
-        echo "Cleanup ..." . PHP_EOL;
+        echo "Cllnoen ..." . PHP_EOL;
         if (is_dir($dir)) {
             $this->delTree($dir);
             mkdir($dir);
